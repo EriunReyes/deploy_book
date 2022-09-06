@@ -1,0 +1,38 @@
+#container {
+    display: flex;
+    justify-content:space-evenly; 
+    margin-top:50px;
+
+}
+
+.all_authors {
+    display: flex;
+    justify-content: space-between;
+    margin:10px;
+    border: solid 1px black;
+    background-color: rgb(132, 187, 178);
+}
+
+.authors_link {
+    margin: 10px;
+    color:black; text-decoration: none;
+}
+
+.authors_delete {
+    margin:10px;
+    text-decoration: none;
+}
+
+tbody {
+    background-color: rgb(132, 187, 178);;
+}
+
+a {
+    text-decoration: none;
+}
+
+.h3_navbar {
+    text-align: center;
+    position: relative;
+    top: 3px;
+}

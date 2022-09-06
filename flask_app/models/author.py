@@ -37,7 +37,8 @@ class Author:
             book_data = {
                 'id': row_books['books.id'],
                 'title': row_books['title'], 
-                'num_of_pages': row_books['num_of_pages'], 
+                'num_of_pages': row_books['num_of_pages'],
+                'price': row_books['price'],
                 'created_at': row_books['books.created_at'], 
                 'updated_at': row_books['books.updated_at']
             }

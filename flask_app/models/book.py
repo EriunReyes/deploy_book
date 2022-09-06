@@ -7,13 +7,14 @@ class Book:
         self.id = data['id']
         self.title = data['title']
         self.num_of_pages = data['num_of_pages']
+        self.price = data['price']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         self.authors = []
 
     @classmethod
     def save(self, data): # method that helps to insert our information tables and save it in our database
-        query = 'INSERT INTO books(title, num_of_pages, created_at, updated_at) VALUES (%(title)s, %(num_of_pages)s, NOW(), NOW())'
+        query = 'INSERT INTO books(title, num_of_pages,price, created_at, updated_at) VALUES (%(title)s, %(num_of_pages)s, %(price)s, NOW(), NOW())'
         return connectToMySQL(db).query_db(query, data)
 
     @classmethod
@@ -46,12 +47,12 @@ class Book:
 
     @classmethod
     def update(cls, data):
-        query = 'UPDATE books SET title = %(title)s, num_of_pages = %(num_of_pages)s, updated_at = NOW() WHERE id = %(id)s '
+        query = 'UPDATE books SET title = %(title)s, num_of_pages = %(num_of_pages)s, updated_at = NOW() WHERE id = %(id)s;'
         return connectToMySQL(db).query_db(query, data)
 
     @classmethod
-    def destroy(cls, data):
-        query = 'DELETE FROM books WHERE id = %(id)s' #this method delete the specific id
+    def destroyBooks(cls, data):
+        query = 'DELETE FROM books WHERE id = %(id)s;' #this method delete the specific id
         return connectToMySQL(db).query_db(query, data)
 
     @classmethod

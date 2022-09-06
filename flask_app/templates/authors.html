@@ -5,23 +5,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
     <title>Authors</title>
 </head>
 <body>
-    <div style="display:flex; justify-content:space-evenly; margin-top:50px ">
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid" style="width: auto">
+        <div class="h3_navbar">
+            <h3 style="color: white;">BooksEnjoy</h3>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item" style="margin: 0 50px;">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/show_author/{{1}}">Book details</a>
+            </li>
+        </ul>
+        </div>
+    </div>
+    </nav>
+    <div id="container">
         <div>
-            <h1>New Authors</h1>
+            <h1> Readers</h1>
             <form action="/add_author" method="post">
                 <label for="name">Name:</label>
-                <input type="text" name="name">
+                <input type="text" name="name" placeholder="Enter your name here">
                 <input type="submit" value="Create" class="btn btn-primary">
             </form>
         </div>
         <div>
-            <h1>All Authors</h1>
+            <h1>All Readers</h1>
             {% for authors in author %}
-                <div style="border:solid;">
-                    <a href="/show_author/{{authors.id}}" style="color:black; text-decoration: none;">{{authors.name}}  <a href="/delete/{{authors.id}}">Delete<a></a>
+                <div class="all_authors">
+                    <a href="/show_author/{{authors.id}}" class="authors_link">{{authors.name}}  <a href="/delete/{{authors.id}}" class="authors_delete">Delete<a></a>
                 </div>
             {% endfor %}
             <a href="/books">Add Book</a>
